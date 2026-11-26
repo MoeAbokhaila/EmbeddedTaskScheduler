@@ -2,3 +2,4 @@ scheduler
 *.o
 *.out
 build/
+.DS_Store
