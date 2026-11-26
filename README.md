@@ -1,23 +1,19 @@
-# Embedded Task Scheduler (Mini RTOS Simulation)
+# Embedded Task Scheduler
 
-## Overview
+A small C++ cooperative scheduler simulation that selects the highest-priority ready task. The example registers sensor, motor, and logging tasks.
 
-This project is a simple cooperative task scheduler written in C++.  
-I built it to understand how embedded systems and RTOS kernels manage multiple tasks on a single CPU.
+## Build and run
 
-It registers tasks, assigns priorities, and continuously runs the highest-priority task that is ready.
+Use a C++11-compatible compiler:
 
-## Features
-
-- Task Control Block (TCB)
-- Priority-based scheduling
-- Cooperative multitasking
-- Task states (Ready, Running, Waiting)
-
-## Build
-
-g++ src/*.cpp -Iinclude -o scheduler
-
-## Run
-
+```sh
+g++ -std=c++11 src/*.cpp -Iinclude -o scheduler
 ./scheduler
+```
+
+Stop the program with Ctrl+C. The scheduler runs continuously. A task that remains ready and has the highest priority can be selected repeatedly, so lower-priority tasks may not run; this is a simple simulation rather than a preemptive RTOS.
+
+## Structure
+
+- `include/`: task and scheduler interfaces
+- `src/`: implementations and an example program
